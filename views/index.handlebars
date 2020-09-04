@@ -1,38 +1,54 @@
-<h1>burgers!</h1>
+<div class="jumbotron bg-danger">
+  <h1>Frank's Big Mac</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h2>Add a Burger</h2>
+      <form class="create-form">
 
-<h2>ORDERS READY!</h2>
+        <div class="form-group">
+          <label for="bname">Burger Name:</label>
+          <input type="text" id="bname" name="name">
+        </div>
 
-<ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burgers/burger-block devoured=true}}
-    {{/unless}}
-  {{/each}}
-</ul>
+        <div class="form-group">
+          <label for="devoured">ORDERS STATUS?</label><br>
+          <input type="radio" name="devoured" value="1" checked> DEVOURED!<br>
+          <input type="radio" name="devoured" value="0"> ORDER!
+        </div>
 
-<h2>ORDERS COMPLETED!</h2>
-
-<ul>
-  {{#each burgers}}
-    {{#if devoured}}
-      {{> burgers/burger-block devoured=false}}
-    {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="bname">burger Name:</label>
-    <input type="text" id="bname" name="name">
+        <button type="submit" class="btn btn-primary">Add burger</button>
+      </form>
+    </div>
   </div>
+  <div class="row">
+    <div class="col-md-6">
+      
 
-  <div class="form-group">
-    <label for="devoured">ORDERS STATUS?</label><br>
-    <input type="radio" name="devoured" value="1" checked> devoured!<br>
-    <input type="radio" name="devoured" value="0"> ORDER!
+      <h2 class="bg-secondary text-light">ORDERS READY!</h2>
+
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        {{> burgers/burger-block devoured=true}}
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <h2>ORDERS COMPLETED!</h2>
+
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        {{> burgers/burger-block devoured=false}}
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
   </div>
-
-  <button type="submit">Add burger</button>
-</form>
+</div>
+<footer class="bg-danger text-center">
+  &copy;FRANK
+</footer>
